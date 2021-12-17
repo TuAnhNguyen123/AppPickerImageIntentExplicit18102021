@@ -3,10 +3,12 @@ package com.example.apppickerimageintentexplicit18102021;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 
 import java.util.Collections;
@@ -20,14 +22,23 @@ private ImageView mImgPick,mImgRandom;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         initView();
         event();
 
     }
 
     private void event() {
-
+        mImgPick.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this,MainActivityPickPucture.class);
+                //intent.putExtra("text","Hello");
+                //intent.putExtra("arr_drawable",mArrDrawable);
+                Animal animal = new Animal("cat",2);
+                intent.putExtra("object",animal);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initView() {
@@ -48,8 +59,6 @@ private ImageView mImgPick,mImgRandom;
     }
 
     //Tạo menu Refresh
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_demo,menu);
