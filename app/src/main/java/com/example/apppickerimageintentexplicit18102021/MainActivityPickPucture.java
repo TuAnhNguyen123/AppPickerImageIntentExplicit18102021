@@ -68,13 +68,16 @@ public class MainActivityPickPucture extends AppCompatActivity {
 //                    TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(px,px);
 //                    imageView.setLayoutParams(layoutParams);
                     imageView.setImageResource(mResource);
-                    imageView.setTag(mCount);
+                    imageView.setTag(mResource);
                     imageView.setScaleType(ImageView.ScaleType.FIT_XY);
                     imageView.setLayoutParams(layoutParams);
                     imageView.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View view) {
-                            Toast.makeText(MainActivityPickPucture.this, mArrDrawable[(int) imageView.getTag()], Toast.LENGTH_SHORT).show();
+                            Intent intentData = new Intent();
+                            intentData.putExtra("resourceData",(int)imageView.getTag());
+                            setResult(RESULT_OK,intentData);
+                            finish();
                         }
                     });
                     tableRow.addView(imageView);
