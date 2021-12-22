@@ -33,9 +33,9 @@ private ImageView mImgPick,mImgRandom;
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this,MainActivityPickPucture.class);
                 //intent.putExtra("text","Hello");
-                //intent.putExtra("arr_drawable",mArrDrawable);
-                Animal animal = new Animal("cat",2);
-                intent.putExtra("object",animal);
+                intent.putExtra("arr_drawable",mArrDrawable);
+//                Animal animal = new Animal("cat",2);
+//                intent.putExtra("object",animal);
                 startActivity(intent);
             }
         });
